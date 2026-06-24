@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow-blue {
+  0%, 100% { box-shadow: 0 0 8px rgba(56, 189, 248, 0.3), 0 0 20px rgba(56, 189, 248, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.5), 0 0 40px rgba(56, 189, 248, 0.2); }
+}
+
+@keyframes pulse-glow-pink {
+  0%, 100% { box-shadow: 0 0 8px rgba(244, 114, 182, 0.3), 0 0 20px rgba(244, 114, 182, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(244, 114, 182, 0.5), 0 0 40px rgba(244, 114, 182, 0.2); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+.animate-shake { animation: shake 0.5s ease-in-out; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-glow-blue { animation: pulse-glow-blue 2s ease-in-out infinite; }
+.animate-glow-pink { animation: pulse-glow-pink 2s ease-in-out infinite; }
+.animate-sparkle { animation: sparkle 2s ease-in-out infinite; }
+.animate-gradient { background-size: 200% 200%; animation: gradient-shift 5s ease infinite; }
+.animate-slideUp { animation: slideUp 0.3s ease-out; }
+
+/* Custom scrollbar - Boy theme */
+.scrollbar-boy::-webkit-scrollbar { width: 5px; }
+.scrollbar-boy::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-boy::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+.scrollbar-boy::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+
+/* Custom scrollbar - Girl theme */
+.scrollbar-girl::-webkit-scrollbar { width: 5px; }
+.scrollbar-girl::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-girl::-webkit-scrollbar-thumb { background: #4a1942; border-radius: 3px; }
+.scrollbar-girl::-webkit-scrollbar-thumb:hover { background: #f472b6; }
+
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: inherit;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  overscroll-behavior: none;
+}
+
+.locked-note-text {
+  filter: blur(10px);
+  opacity: 0.55;
+  user-select: none;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.group:hover .locked-note-text {
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+.note-grid {
+  columns: 1;
+  column-gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .note-grid { columns: 2; }
+}
+
+@media (min-width: 1024px) {
+  .note-grid { columns: 3; }
+}
+
+@media (min-width: 1280px) {
+  .note-grid { columns: 4; }
+}
+
+.note-grid > * {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+/* Checkbox styles */
+.checklist-item input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.checklist-item input[type="checkbox"]:checked {
+  border-color: transparent;
+}
+
+.checklist-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.theme-boy .checklist-item input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+}
+
+.theme-girl .checklist-item input[type="checkbox"]:checked {
+  background: linear-gradient(135deg, #ec4899, #a855f7);
+}

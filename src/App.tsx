@@ -6,18 +6,18 @@ import {
   X, Hash, TrendingUp, Clock,
   Zap, Flower2, ChevronDown, Sparkles, Calendar as CalIcon
 } from 'lucide-react';
-import { Note, FilterType, ViewMode, AppSettings, ThemeStyle, CalendarEvent } from './types';
-import { loadNotes, saveNotes, loadSettings, saveSettings, isPinConfigured, generateId, loadEvents, saveEvents } from './store';
-import { getTheme, NOTE_TEMPLATES } from './themes';
-import PinLockScreen from './components/PinLockScreen';
-import PinSetupScreen from './components/PinSetupScreen';
-import NoteEditor from './components/NoteEditor';
-import NoteCard from './components/NoteCard';
-import SettingsPanel from './components/SettingsPanel';
-import TemplateSelector from './components/TemplateSelector';
-import CalendarView from './components/CalendarView';
-import EventModal from './components/EventModal';
-import NotePinModal from './components/NotePinModal';
+import { Note, FilterType, ViewMode, AppSettings, ThemeStyle, CalendarEvent } from './types.ts';
+import { loadNotes, saveNotes, loadSettings, saveSettings, isPinConfigured, generateId, loadEvents, saveEvents } from './store.ts';
+import { getTheme, NOTE_TEMPLATES } from './themes.ts';
+import PinLockScreen from './components/PinLockScreen.tsx';
+import PinSetupScreen from './components/PinSetupScreen.tsx';
+import NoteEditor from './components/NoteEditor.tsx';
+import NoteCard from './components/NoteCard.tsx';
+import SettingsPanel from './components/SettingsPanel.tsx';
+import TemplateSelector from './components/TemplateSelector.tsx';
+import CalendarView from './components/CalendarView.tsx';
+import EventModal from './components/EventModal.tsx';
+import NotePinModal from './components/NotePinModal.tsx';
 
 type MainView = 'notes' | 'calendar';
 
